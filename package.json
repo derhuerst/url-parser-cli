@@ -1,0 +1,29 @@
+{
+	"name": "parse-url-cli",
+	"description": "Parse a URL, get a component of it back, or all as JSON.",
+	"version": "0.1.0",
+	"files": [
+		"cli.js"
+	],
+	"keywords": [
+		"url",
+		"parse",
+		"decode",
+		"command line",
+		"cli"
+	],
+	"author": "Jannis R <mail@jannisr.de>",
+	"homepage": "https://github.com/derhuerst/parse-url-cli",
+	"repository": "derhuerst/parse-url-cli",
+	"bugs": "https://github.com/derhuerst/parse-url-cli/issues",
+	"license": "ISC",
+	"engines": {
+		"node": ">=6"
+	},
+	"dependencies": {
+	},
+	"scripts": {
+		"test": "env NODE_ENV=dev node test.js",
+		"prepublishOnly": "npm test"
+	}
+}
