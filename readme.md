@@ -1,5 +1,7 @@
 # parse-url-cli
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/derhuerst/parse-url-cli.svg)](https://greenkeeper.io/)
+
 **Parse a URL, get one or all components pretty-printed or as JSON.** Uses [`whatwg-url`](https://github.com/jsdom/whatwg-url) underneath.
 
 [![npm version](https://img.shields.io/npm/v/parse-url-cli.svg)](https://www.npmjs.com/package/parse-url-cli)
