@@ -27,5 +27,8 @@
 	"scripts": {
 		"test": "env NODE_ENV=dev node test.js",
 		"prepublishOnly": "npm test"
+	},
+	"devDependencies": {
+		"execa": "^0.10.0"
 	}
 }
