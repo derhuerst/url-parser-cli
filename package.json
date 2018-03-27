@@ -1,6 +1,6 @@
 {
 	"name": "parse-url-cli",
-	"description": "Parse a URL, get a component of it back, or all as JSON.",
+	"description": "Parse a URL, get one or all components pretty-printed or as JSON.",
 	"version": "0.1.0",
 	"files": [
 		"cli.js"

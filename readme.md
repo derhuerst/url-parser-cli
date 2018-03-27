@@ -1,6 +1,6 @@
 # parse-url-cli
 
-**Parse a URL, get a component of it back, or all as JSON.**
+**Parse a URL, get one or all components pretty-printed or as JSON.** Uses [`whatwg-url`](https://github.com/jsdom/whatwg-url) underneath.
 
 [![npm version](https://img.shields.io/npm/v/parse-url-cli.svg)](https://www.npmjs.com/package/parse-url-cli)
 [![build status](https://api.travis-ci.org/derhuerst/parse-url-cli.svg?branch=master)](https://travis-ci.org/derhuerst/parse-url-cli)
@@ -20,9 +20,22 @@ Or use [`npx`](https://npmjs.com/package/npx). ✨
 
 ## Usage
 
-```shell
-# todo
 ```
+Usage:
+    parse-url-cli <url> [component]
+Options:
+	--json  -j  Output JSON instead of a pretty represenation.
+Examples:
+    parse-url-cli 'https://example.org:2000/hello/world?foo=bar#baz' host
+    parse-url-cli --json 'example.org:2000'
+```
+
+
+## Related
+
+- [`url-decode-encode-cli`](https://github.com/derhuerst/url-decode-encode-cli) – Command line utility for URL decoding & encoding.
+- [`query-string-cli`](https://github.com/derhuerst/query-string-cli) – Decode & encode URL query strings in the command line.
+- [`whatwg-url`](https://github.com/jsdom/whatwg-url) – An implementation of the WHATWG URL Standard in JavaScript
 
 
 ## Contributing
