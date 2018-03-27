@@ -22,12 +22,12 @@ Or use [`npx`](https://npmjs.com/package/npx). ✨
 
 ```
 Usage:
-    parse-url-cli <url> [component]
+    parse-url <url> [component]
 Options:
 	--json  -j  Output JSON instead of a pretty represenation.
 Examples:
-    parse-url-cli 'https://example.org:2000/hello/world?foo=bar#baz' host
-    parse-url-cli --json 'example.org:2000'
+    parse-url 'https://example.org:2000/hello/world?foo=bar#baz' host
+    parse-url --json 'example.org:2000'
 ```
 
 

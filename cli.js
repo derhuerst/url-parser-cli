@@ -19,17 +19,17 @@ const argv = mri(process.argv.slice(2), {
 if (argv.help || argv.h) {
 	process.stdout.write(`
 Usage:
-    parse-url-cli <url> [component]
+    parse-url <url> [component]
 Options:
 	--json  -j  Output JSON instead of a pretty represenation.
 Examples:
-    parse-url-cli 'https://example.org:2000/hello/world?foo=bar#baz' host
+    parse-url 'https://example.org:2000/hello/world?foo=bar#baz' host
 \n`)
 	process.exit(0)
 }
 
 if (argv.version || argv.v) {
-	process.stdout.write(`parse-url-cli v${pkg.version}\n`)
+	process.stdout.write(`parse-url v${pkg.version}\n`)
 	process.exit(0)
 }
 
