@@ -59,6 +59,8 @@ if (component) {
 
 if (argv.json || argv.j) {
 	process.stdout.write(JSON.stringify(val) + '\n')
+} else if (typeof val === 'string') {
+	process.stdout.write(val + '\n')
 } else {
 	const stdoutIsATerminal = isatty(process.stdout.fd)
 	process.stdout.write(inspect(val, {
