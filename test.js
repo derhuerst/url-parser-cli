@@ -51,6 +51,6 @@ exec.shell(bin + ` --json 'https://example.org/foo/bar' host`)
 
 exec.shell(bin + ` 'https://example.org/foo/bar' scheme`)
 .then((res) => {
-	assert.strictEqual(res.stdout, `'https'`)
+	assert.strictEqual(res.stdout, `https`)
 })
 .catch(showError)
