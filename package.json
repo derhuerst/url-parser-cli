@@ -32,6 +32,6 @@
 		"prepublishOnly": "npm test"
 	},
 	"devDependencies": {
-		"execa": "^1.0.0"
+		"execa": "^2.0.0"
 	}
 }
