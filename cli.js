@@ -49,6 +49,7 @@ try {
 } catch (err) {
 	showError(err)
 }
+if (parsed === null) showError('invalid URL')
 
 const component = argv._[1]
 let val = parsed

@@ -22,11 +22,11 @@
 	"bugs": "https://github.com/derhuerst/parse-url-cli/issues",
 	"license": "ISC",
 	"engines": {
-		"node": ">=6"
+		"node": ">=12"
 	},
 	"dependencies": {
 		"mri": "^1.1.0",
-		"whatwg-url": "^7.0.0"
+		"whatwg-url": "^8.1.0"
 	},
 	"scripts": {
 		"test": "env NODE_ENV=dev node test.js",
