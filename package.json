@@ -1,4 +1,5 @@
 {
+	"preferGlobal": true,
 	"name": "parse-url-cli",
 	"description": "Parse a URL, get one or all components pretty-printed or as JSON.",
 	"version": "1.0.0",
