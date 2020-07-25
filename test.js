@@ -11,23 +11,23 @@ const showError = (err) => {
 	process.exitCode = 1
 }
 
-exec.shell(bin)
+exec(bin)
 .catch((res) => {
 	assert.ok(res)
-	assert.ok(res.code > 0)
+	assert.ok(res.exitCode > 0)
 	assert.ok(res.stderr.length > 0)
 })
 .catch(showError)
 
-exec.shell(bin + `'example.org' some-invalid-component`)
+exec(bin, ['http://example.org', 'some-invalid-component'])
 .catch((res) => {
 	assert.ok(res)
-	assert.ok(res.code > 0)
+	assert.ok(res.exitCode > 0)
 	assert.ok(res.stderr.length > 0)
 })
 .catch(showError)
 
-exec.shell(bin + ` --json 'https://example.org/foo/bar'`)
+exec(bin, ['--json', 'https://example.org/foo/bar'])
 .then((res) => {
 	assert.strictEqual(res.stdout, JSON.stringify({
 		scheme: 'https',
@@ -43,13 +43,13 @@ exec.shell(bin + ` --json 'https://example.org/foo/bar'`)
 })
 .catch(showError)
 
-exec.shell(bin + ` --json 'https://example.org/foo/bar' host`)
+exec(bin, ['--json', 'https://example.org/foo/bar', 'host'])
 .then((res) => {
 	assert.strictEqual(res.stdout, JSON.stringify('example.org'))
 })
 .catch(showError)
 
-exec.shell(bin + ` 'https://example.org/foo/bar' scheme`)
+exec(bin, ['https://example.org/foo/bar', 'scheme'])
 .then((res) => {
 	assert.strictEqual(res.stdout, `https`)
 })

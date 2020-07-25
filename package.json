@@ -2,7 +2,7 @@
 	"preferGlobal": true,
 	"name": "parse-url-cli",
 	"description": "Parse a URL, get one or all components pretty-printed or as JSON.",
-	"version": "1.0.1",
+	"version": "2.0.0",
 	"files": [
 		"cli.js"
 	],
@@ -33,6 +33,6 @@
 		"prepublishOnly": "npm test"
 	},
 	"devDependencies": {
-		"execa": "^1.0.0"
+		"execa": "^4.0.3"
 	}
 }
