@@ -5,8 +5,9 @@
 [![npm version](https://img.shields.io/npm/v/parse-url-cli.svg)](https://www.npmjs.com/package/parse-url-cli)
 [![build status](https://api.travis-ci.org/derhuerst/parse-url-cli.svg?branch=master)](https://travis-ci.org/derhuerst/parse-url-cli)
 ![ISC-licensed](https://img.shields.io/github/license/derhuerst/parse-url-cli.svg)
+![minimum Node.js version](https://img.shields.io/node/v/parse-url-cli.svg)
 [![chat with me on Gitter](https://img.shields.io/badge/chat%20with%20me-on%20gitter-512e92.svg)](https://gitter.im/derhuerst)
-[![support me on Patreon](https://img.shields.io/badge/support%20me-on%20patreon-fa7664.svg)](https://patreon.com/derhuerst)
+[![support me via GitHub Sponsors](https://img.shields.io/badge/support%20me-donate-fa7664.svg)](https://github.com/sponsors/derhuerst)
 
 
 ## Installing
@@ -29,6 +30,8 @@ Examples:
     parse-url 'https://example.org:2000/hello/world?foo=bar#baz' host
     parse-url --json 'example.org:2000'
 ```
+
+*Pro trip:* Use `query-string-cli` in conjunction with [`parse-url-cli`](https://github.com/derhuerst/parse-url-cli).
 
 
 ## Related
