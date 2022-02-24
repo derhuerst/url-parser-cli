@@ -31,7 +31,7 @@ Examples:
     parse-url --json 'example.org:2000'
 ```
 
-*Pro trip:* Use `query-string-cli` in conjunction with [`parse-url-cli`](https://github.com/derhuerst/parse-url-cli).
+*Pro tip:* Use `query-string-cli` in conjunction with [`parse-url-cli`](https://github.com/derhuerst/parse-url-cli).
 
 
 ## Related
