@@ -1,10 +1,10 @@
-# parse-url-cli
+# url-parser-cli
 
 **Parse a URL, get one or all components pretty-printed or as JSON.** Uses [`whatwg-url`](https://github.com/jsdom/whatwg-url) underneath.
 
-[![npm version](https://img.shields.io/npm/v/parse-url-cli.svg)](https://www.npmjs.com/package/parse-url-cli)
-![ISC-licensed](https://img.shields.io/github/license/derhuerst/parse-url-cli.svg)
-![minimum Node.js version](https://img.shields.io/node/v/parse-url-cli.svg)
+[![npm version](https://img.shields.io/npm/v/url-parser-cli.svg)](https://www.npmjs.com/package/url-parser-cli)
+![ISC-licensed](https://img.shields.io/github/license/derhuerst/url-parser-cli.svg)
+![minimum Node.js version](https://img.shields.io/node/v/url-parser-cli.svg)
 [![chat with me on Gitter](https://img.shields.io/badge/chat%20with%20me-on%20gitter-512e92.svg)](https://gitter.im/derhuerst)
 [![support me via GitHub Sponsors](https://img.shields.io/badge/support%20me-donate-fa7664.svg)](https://github.com/sponsors/derhuerst)
 
@@ -14,7 +14,7 @@
 ## Installing
 
 ```shell
-npm install -g parse-url-cli
+npm install -g url-parser-cli
 ```
 
 Or use [`npx`](https://npmjs.com/package/npx). ✨
@@ -32,7 +32,7 @@ Examples:
     parse-url --json 'example.org:2000'
 ```
 
-*Pro tip:* Use `query-string-cli` in conjunction with [`parse-url-cli`](https://github.com/derhuerst/parse-url-cli).
+*Pro tip:* Use `query-string-cli` in conjunction with [`url-parser-cli`](https://github.com/derhuerst/url-parser-cli).
 
 
 ## Related
@@ -45,4 +45,4 @@ Examples:
 
 ## Contributing
 
-If you have a question or have difficulties using `parse-url-cli`, please double-check your code and setup first. If you think you have found a bug or want to propose a feature, refer to [the issues page](https://github.com/derhuerst/parse-url-cli/issues).
+If you have a question or have difficulties using `url-parser-cli`, please double-check your code and setup first. If you think you have found a bug or want to propose a feature, refer to [the issues page](https://github.com/derhuerst/url-parser-cli/issues).

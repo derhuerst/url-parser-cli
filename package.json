@@ -1,6 +1,6 @@
 {
 	"preferGlobal": true,
-	"name": "parse-url-cli",
+	"name": "url-parser-cli",
 	"description": "Parse a URL, get one or all components pretty-printed or as JSON.",
 	"version": "3.0.1",
 	"type": "module",
@@ -18,9 +18,9 @@
 		"cli"
 	],
 	"author": "Jannis R <mail@jannisr.de>",
-	"homepage": "https://github.com/derhuerst/parse-url-cli",
-	"repository": "derhuerst/parse-url-cli",
-	"bugs": "https://github.com/derhuerst/parse-url-cli/issues",
+	"homepage": "https://github.com/derhuerst/url-parser-cli",
+	"repository": "derhuerst/url-parser-cli",
+	"bugs": "https://github.com/derhuerst/url-parser-cli/issues",
 	"license": "ISC",
 	"engines": {
 		"node": ">=20"
