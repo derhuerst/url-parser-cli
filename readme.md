@@ -35,6 +35,7 @@ Examples:
 
 ## Related
 
+- [curl's `trurl`](https://github.com/curl/trurl) – Command line tool for URL parsing and manipulation.
 - [`url-decode-encode-cli`](https://github.com/derhuerst/url-decode-encode-cli) – Command line utility for URL decoding & encoding.
 - [`query-string-cli`](https://github.com/derhuerst/query-string-cli) – Decode & encode URL query strings in the command line.
 - [`whatwg-url`](https://github.com/jsdom/whatwg-url) – An implementation of the WHATWG URL Standard in JavaScript
