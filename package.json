@@ -3,6 +3,7 @@
 	"name": "parse-url-cli",
 	"description": "Parse a URL, get one or all components pretty-printed or as JSON.",
 	"version": "2.0.1",
+	"type": "module",
 	"files": [
 		"cli.js"
 	],

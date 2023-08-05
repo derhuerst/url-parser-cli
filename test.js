@@ -1,10 +1,8 @@
-'use strict'
+import {fileURLToPath} from 'node:url'
+import exec from 'execa'
+import * as assert from 'node:assert'
 
-const path = require('path')
-const exec = require('execa')
-const assert = require('assert')
-
-const bin = path.join(__dirname, 'cli.js')
+const bin = fileURLToPath(new URL('cli.js', import.meta.url).href)
 
 const showError = (err) => {
 	console.error(err)

@@ -1,11 +1,8 @@
 #!/usr/bin/env node
-'use strict'
+import {createRequire} from 'node:module'
+const require = createRequire(import.meta.url)
 
-const mri = require('mri')
-const {parseURL} = require('whatwg-url')
-const {inspect} = require('util')
-const {isatty} = require('tty')
-
+import mri from 'mri'
 const pkg = require('./package.json')
 
 const argv = mri(process.argv.slice(2), {
@@ -32,6 +29,10 @@ if (argv.version || argv.v) {
 	process.stdout.write(`parse-url v${pkg.version}\n`)
 	process.exit(0)
 }
+
+import {parseURL} from 'whatwg-url'
+import {inspect} from 'node:util'
+import {isatty} from 'node:tty'
 
 const showError = (err) => {
 	if (process.env.NODE_ENV === 'dev') console.error(err)
