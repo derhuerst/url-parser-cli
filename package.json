@@ -29,10 +29,12 @@
 		"whatwg-url": "^10.0.0"
 	},
 	"scripts": {
+		"lint": "eslint .",
 		"test": "env NODE_ENV=dev node test.js",
-		"prepublishOnly": "npm test"
+		"prepublishOnly": "npm run lint && npm test"
 	},
 	"devDependencies": {
+		"eslint": "^8.46.0",
 		"execa": "^5.1.1"
 	}
 }
