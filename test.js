@@ -1,33 +1,41 @@
 import {fileURLToPath} from 'node:url'
 import {execa as exec} from 'execa'
-import * as assert from 'node:assert'
+import {fail, ok, strictEqual} from 'node:assert'
 
 const bin = fileURLToPath(new URL('cli.js', import.meta.url).href)
 
-const showError = (err) => {
-	console.error(err)
-	process.exitCode = 1
+{
+	try {
+		await exec(bin)
+		fail('command did not fail')
+	} catch (err) {
+		ok(err)
+		ok(err.exitCode > 0)
+		ok(err.stderr.length > 0)
+	}
 }
 
-exec(bin)
-.catch((res) => {
-	assert.ok(res)
-	assert.ok(res.exitCode > 0)
-	assert.ok(res.stderr.length > 0)
-})
-.catch(showError)
+{
+	try {
+		await exec(bin, [
+			'http://example.org',
+			'some-invalid-component',
+		])
+		fail('command did not fail')
+	} catch (err) {
+		ok(err)
+		ok(err.exitCode > 0)
+		ok(err.stderr.length > 0)
+	}
+}
 
-exec(bin, ['http://example.org', 'some-invalid-component'])
-.catch((res) => {
-	assert.ok(res)
-	assert.ok(res.exitCode > 0)
-	assert.ok(res.stderr.length > 0)
-})
-.catch(showError)
+{
+	const res = await exec(bin, [
+		'--json',
+		'https://example.org/foo/bar',
+	])
 
-exec(bin, ['--json', 'https://example.org/foo/bar'])
-.then((res) => {
-	assert.strictEqual(res.stdout, JSON.stringify({
+	strictEqual(res.stdout, JSON.stringify({
 		scheme: 'https',
 		username: '',
 		password: '',
@@ -37,17 +45,24 @@ exec(bin, ['--json', 'https://example.org/foo/bar'])
 		query: null,
 		fragment: null,
 	}))
-})
-.catch(showError)
+}
 
-exec(bin, ['--json', 'https://example.org/foo/bar', 'host'])
-.then((res) => {
-	assert.strictEqual(res.stdout, JSON.stringify('example.org'))
-})
-.catch(showError)
+{
+	const res = await exec(bin, [
+		'--json', 'https://example.org/foo/bar',
+		'host',
+	])
 
-exec(bin, ['https://example.org/foo/bar', 'scheme'])
-.then((res) => {
-	assert.strictEqual(res.stdout, `https`)
-})
-.catch(showError)
+	strictEqual(res.stdout, JSON.stringify('example.org'))
+}
+
+{
+	const res = await exec(bin, [
+		'https://example.org/foo/bar',
+		'scheme',
+	])
+
+	strictEqual(res.stdout, `https`)
+}
+
+console.info('seems to work ✔')
