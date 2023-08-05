@@ -1,0 +1,14 @@
+[package]
+name = "url_parser_cli"
+version = "4.0.0"
+edition = "2021"
+authors = ["Jannis R <mail@jannisr.de>"]
+repository = "https://github.com/derhuerst/url-parser-cli.git"
+homepage = "https://github.com/derhuerst/url-parser-cli"
+license = "ISC"
+readme = "README.md"
+description = "Parse a URL, get one or all components pretty-printed or as JSON."
+keywords = ["url", "parse"]
+exclude = [".github"]
+
+[dependencies]

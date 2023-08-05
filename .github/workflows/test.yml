@@ -1,28 +1,26 @@
-name: test
+name: build & test
 
 on:
-  push:
-    branches:
-      - '*'
-  pull_request:
-    branches:
-      - '*'
+  - push
+  - pull_request
 
 jobs:
-  test:
+  build-test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: ['20']
+        rust-toolchain: ['stable', 'beta']
 
     steps:
-    - name: checkout
-      uses: actions/checkout@v3
-    - name: setup Node v${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm install
+      - uses: actions/checkout@v3
+      - name: set up Rust ${{ matrix.rust-toolchain }}
+        uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: ${{ matrix.rust-toolchain }}
+      - name: configure Cargo/rustc caching
+        uses: Swatinem/rust-cache@v2
 
-    - run: npm run lint
-    - run: npm test
+      - name: cargo test
+        run: cargo test
+      - name: cargo build
+        run: cargo build --all-features

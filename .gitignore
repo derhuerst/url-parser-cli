@@ -1,10 +1,4 @@
-.DS_Store
-Thumbs.db
+/Cargo.lock
 
-.nvm-version
-node_modules
-npm-debug.log
-pnpm-debug.log
-
-package-lock.json
-shrinkwrap.yaml
+/target
+**/*.rs.bk

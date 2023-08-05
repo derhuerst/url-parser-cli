@@ -1,12 +1,13 @@
 # url-parser-cli
 
-**Parse a URL, get one or all components pretty-printed or as JSON.** Uses [`whatwg-url`](https://github.com/jsdom/whatwg-url) underneath.
+**Parse a URL, get one or all components pretty-printed or as JSON.** Uses [`url`](https://docs.rs/url/) underneath.
 
-[![npm version](https://img.shields.io/npm/v/url-parser-cli.svg)](https://www.npmjs.com/package/url-parser-cli)
+[![crates.io version](https://img.shields.io/crates/v/url_parser_cli.svg)](https://crates.io/crates/url_parser_cli)
 ![ISC-licensed](https://img.shields.io/github/license/derhuerst/url-parser-cli.svg)
-![minimum Node.js version](https://img.shields.io/node/v/url-parser-cli.svg)
-[![chat with me on Gitter](https://img.shields.io/badge/chat%20with%20me-on%20gitter-512e92.svg)](https://gitter.im/derhuerst)
-[![support me via GitHub Sponsors](https://img.shields.io/badge/support%20me-donate-fa7664.svg)](https://github.com/sponsors/derhuerst)
+[![chat on gitter](https://badges.gitter.im/derhuerst.svg)](https://gitter.im/derhuerst)
+[![support me on Patreon](https://img.shields.io/badge/support%20me-on%20patreon-fa7664.svg)](https://patreon.com/derhuerst)
+
+*Note:* I'm a Rust beginner, so the code might be unelegant. 🙈
 
 *Note:* This utility has been rewritten in Rust, checkout [url-parser-cli](https://github.com/derhuerst/url-parser-cli).
 
@@ -14,25 +15,16 @@
 ## Installing
 
 ```shell
-npm install -g url-parser-cli
+cargo install chunked_transfer_cli
 ```
 
-Or use [`npx`](https://npmjs.com/package/npx). ✨
+You can also download a binary from the [releases page](https://github.com/derhuerst/chunked-transfer-cli/releases).
 
 
 ## Usage
 
+```txt
 ```
-Usage:
-    parse-url <url> [component]
-Options:
-	--json  -j  Output JSON instead of a pretty represenation.
-Examples:
-    parse-url 'https://example.org:2000/hello/world?foo=bar#baz' host
-    parse-url --json 'example.org:2000'
-```
-
-*Pro tip:* Use `query-string-cli` in conjunction with [`url-parser-cli`](https://github.com/derhuerst/url-parser-cli).
 
 
 ## Related
@@ -40,9 +32,9 @@ Examples:
 - [curl's `trurl`](https://github.com/curl/trurl) – Command line tool for URL parsing and manipulation.
 - [`url-decode-encode-cli`](https://github.com/derhuerst/url-decode-encode-cli) – Command line utility for URL decoding & encoding.
 - [`query-string-cli`](https://github.com/derhuerst/query-string-cli) – Decode & encode URL query strings in the command line.
-- [`whatwg-url`](https://github.com/jsdom/whatwg-url) – An implementation of the WHATWG URL Standard in JavaScript
+- [`url`](https://docs.rs/url/) – An implementation of the WHATWG URL Standard.
 
 
 ## Contributing
 
-If you have a question or have difficulties using `url-parser-cli`, please double-check your code and setup first. If you think you have found a bug or want to propose a feature, refer to [the issues page](https://github.com/derhuerst/url-parser-cli/issues).
+If you have a question or have difficulties using url-parser-cli, please double-check your code and setup first. If you think you have found a bug or want to propose a feature, refer to [the issues page](https://github.com/derhuerst/url-parser-cli/issues).
