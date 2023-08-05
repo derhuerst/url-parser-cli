@@ -26,13 +26,13 @@
 	},
 	"dependencies": {
 		"mri": "^1.1.0",
-		"whatwg-url": "^8.1.0"
+		"whatwg-url": "^10.0.0"
 	},
 	"scripts": {
 		"test": "env NODE_ENV=dev node test.js",
 		"prepublishOnly": "npm test"
 	},
 	"devDependencies": {
-		"execa": "^4.0.3"
+		"execa": "^5.1.1"
 	}
 }
