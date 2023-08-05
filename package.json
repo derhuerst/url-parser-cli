@@ -27,7 +27,7 @@
 	},
 	"dependencies": {
 		"mri": "^1.1.0",
-		"whatwg-url": "^10.0.0"
+		"whatwg-url": "^13.0.0"
 	},
 	"scripts": {
 		"lint": "eslint .",
@@ -36,6 +36,6 @@
 	},
 	"devDependencies": {
 		"eslint": "^8.46.0",
-		"execa": "^5.1.1"
+		"execa": "^7.2.0"
 	}
 }

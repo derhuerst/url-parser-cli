@@ -1,5 +1,5 @@
 import {fileURLToPath} from 'node:url'
-import exec from 'execa'
+import {execa as exec} from 'execa'
 import * as assert from 'node:assert'
 
 const bin = fileURLToPath(new URL('cli.js', import.meta.url).href)
@@ -36,7 +36,6 @@ exec(bin, ['--json', 'https://example.org/foo/bar'])
 		path: ['foo', 'bar'],
 		query: null,
 		fragment: null,
-		cannotBeABaseURL: false
 	}))
 })
 .catch(showError)
