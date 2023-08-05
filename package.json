@@ -26,7 +26,6 @@
 		"node": ">=20"
 	},
 	"dependencies": {
-		"mri": "^1.1.0",
 		"whatwg-url": "^13.0.0"
 	},
 	"scripts": {

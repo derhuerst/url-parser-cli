@@ -2,18 +2,31 @@
 import {createRequire} from 'node:module'
 const require = createRequire(import.meta.url)
 
-import mri from 'mri'
+import {parseArgs} from 'node:util'
 const pkg = require('./package.json')
 
-const argv = mri(process.argv.slice(2), {
-	boolean: [
-		'help', 'h',
-		'version', 'v',
-		'json', 'j'
-	]
+const {
+	values: flags,
+	positionals: args,
+} = parseArgs({
+	options: {
+		'help': {
+			type: 'boolean',
+			short: 'h',
+		},
+		'version': {
+			type: 'boolean',
+			short: 'v',
+		},
+		'json': {
+			type: 'boolean',
+			short: 'j',
+		},
+	},
+	allowPositionals: true,
 })
 
-if (argv.help || argv.h) {
+if (flags.help) {
 	process.stdout.write(`
 Usage:
     parse-url <url> [component]
@@ -25,7 +38,7 @@ Examples:
 	process.exit(0)
 }
 
-if (argv.version || argv.v) {
+if (flags.version) {
 	process.stdout.write(`parse-url v${pkg.version}\n`)
 	process.exit(0)
 }
@@ -40,7 +53,7 @@ const showError = (err) => {
 	process.exit(1)
 }
 
-const url = argv._[0]
+const url = args[0]
 if ('string' !== typeof url || !url) {
 	showError('url must be a non-empty string.')
 }
@@ -52,14 +65,14 @@ try {
 }
 if (parsed === null) showError('invalid URL')
 
-const component = argv._[1]
+const component = args[1]
 let val = parsed
 if (component) {
 	if (!(component in parsed)) showError('Invalid component.')
 	val = parsed[component]
 }
 
-if (argv.json || argv.j) {
+if (flags.json) {
 	process.stdout.write(JSON.stringify(val) + '\n')
 } else if (typeof val === 'string') {
 	process.stdout.write(val + '\n')
