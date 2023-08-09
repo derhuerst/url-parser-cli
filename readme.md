@@ -24,6 +24,17 @@ You can also download a binary from the [releases page](https://github.com/derhu
 ## Usage
 
 ```txt
+Parse a URL, get one or all components pretty-printed or as JSON.
+
+Usage: url_parser_cli [OPTIONS] <URL> [BASE_URL]
+
+Arguments:
+  <URL>       URL to parse
+
+Options:
+  -j, --json     print output as JSON
+  -h, --help     Print help
+  -V, --version  Print version
 ```
 
 
