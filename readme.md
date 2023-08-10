@@ -34,6 +34,7 @@ Arguments:
 
 Options:
   -j, --json     print output as JSON
+  -p, --pretty   print multi-line output
   -h, --help     Print help
   -V, --version  Print version
 ```

@@ -13,6 +13,9 @@ struct Cli {
 	/// print output as JSON
 	#[arg(short, long)]
     json: bool,
+	/// print multi-line output
+	#[arg(short, long)]
+    pretty: bool,
 }
 
 #[derive(Debug, Serialize)]
@@ -52,8 +55,14 @@ fn main() {
 	};
 
 	let formatted = match cli.json {
-		true => serde_json::to_string(&url).unwrap(),
-		false => format!("{:?}", url),
+		true => match cli.pretty {
+			true => serde_json::to_string_pretty(&url),
+			false => serde_json::to_string(&url),
+		}.unwrap(),
+		false => match cli.pretty || atty::is(atty::Stream::Stdout) {
+			true => format!("{:#?}", url),
+			false => format!("{:?}", url),
+		},
 	};
 	println!("{}", formatted);
 }
