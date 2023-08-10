@@ -23,3 +23,28 @@ fn kitchen_sink_json() -> Result<(), Box<dyn std::error::Error>> {
     Ok(())
 }
 
+#[test]
+fn base_url() -> Result<(), Box<dyn std::error::Error>> {
+    let mut cmd = Command::cargo_bin("url_parser_cli")?;
+    cmd
+        .arg("--json")
+        .arg("--pretty")
+        .arg("/one?two=three")
+        .arg(KITCHEN_SINK);
+    cmd.assert()
+        .success()
+        .stdout(r#"{
+  "scheme": "http",
+  "username": "jane",
+  "password": "doe",
+  "host": "foo.bar",
+  "port": 123,
+  "path": "/one",
+  "query": "two=three",
+  "fragment": null
+}
+"#);
+
+    Ok(())
+}
+

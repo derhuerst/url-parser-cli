@@ -7,6 +7,8 @@ use serde::Serialize;
 struct Cli {
 	/// URL to parse
 	url: String,
+	/// base URL to parse <URL> from
+	base_url: Option<String>,
 
 	/// print output as JSON
 	#[arg(short, long)]
@@ -28,7 +30,10 @@ struct UrlForOutput {
 fn main() {
 	let cli = Cli::parse();
 
-	let parsed = Url::parse(&cli.url);
+	let parsed = match cli.base_url {
+		Some(base_url) => Url::parse(&base_url).and_then(|b| b.join(&cli.url)),
+		None => Url::parse(&cli.url),
+	};
 	if let Err(err) = parsed {
 		eprintln!("Could not parse the url: {}", err);
 		std::process::exit(1);

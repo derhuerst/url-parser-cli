@@ -30,6 +30,7 @@ Usage: url_parser_cli [OPTIONS] <URL> [BASE_URL]
 
 Arguments:
   <URL>       URL to parse
+  [BASE_URL]  base URL to parse <URL> from
 
 Options:
   -j, --json     print output as JSON
