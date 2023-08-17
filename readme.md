@@ -8,6 +8,8 @@
 [![chat with me on Gitter](https://img.shields.io/badge/chat%20with%20me-on%20gitter-512e92.svg)](https://gitter.im/derhuerst)
 [![support me via GitHub Sponsors](https://img.shields.io/badge/support%20me-donate-fa7664.svg)](https://github.com/sponsors/derhuerst)
 
+*Note:* This utility has been rewritten in Rust, checkout [url-parser-cli](https://github.com/derhuerst/url-parser-cli).
+
 
 ## Installing
 
