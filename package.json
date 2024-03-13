@@ -2,7 +2,7 @@
 	"preferGlobal": true,
 	"name": "parse-url-cli",
 	"description": "Parse a URL, get one or all components pretty-printed or as JSON.",
-	"version": "3.0.1",
+	"version": "3.0.2",
 	"type": "module",
 	"files": [
 		"cli.js"
@@ -26,7 +26,7 @@
 		"node": ">=20"
 	},
 	"dependencies": {
-		"whatwg-url": "^13.0.0"
+		"whatwg-url": "^14.0.0"
 	},
 	"scripts": {
 		"lint": "eslint .",
