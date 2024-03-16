@@ -43,7 +43,7 @@ if (flags.version) {
 	process.exit(0)
 }
 
-import {parseURL} from 'whatwg-url'
+import {URL} from 'whatwg-url'
 import {inspect} from 'node:util'
 import {isatty} from 'node:tty'
 
@@ -59,7 +59,18 @@ if ('string' !== typeof url || !url) {
 }
 let parsed
 try {
-	parsed = parseURL(url)
+	const _ = new URL(url)
+	parsed = {
+		scheme: _.protocol.slice(0, -1), // strip `:`
+		username: _.username,
+		password: _.password,
+		host: _.host,
+		// hostname: _.hostname,
+		port: _.port ? +_.port : null, // _.port is a string
+		path: _.pathname.split('/').slice(1),
+		query: _.search.slice(1) || null, // strip `?`
+		fragment: _.hash.slice(1) || null, // strip `#`
+	}
 } catch (err) {
 	showError(err)
 }

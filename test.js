@@ -65,4 +65,21 @@ const bin = fileURLToPath(new URL('cli.js', import.meta.url).href)
 	strictEqual(res.stdout, `https`)
 }
 
+{ // parses an IPv4-address-based URL correctly
+	const res = await exec(bin, [
+		'--json', 'http://10.128.32.61:17000/foo',
+	])
+
+	strictEqual(res.stdout, JSON.stringify({
+		scheme: 'http',
+		username: '',
+		password: '',
+		host: '10.128.32.61:17000',
+		port: 17000,
+		path: ['foo'],
+		query: null,
+		fragment: null,
+	}))
+}
+
 console.info('seems to work ✔')
