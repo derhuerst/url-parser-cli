@@ -4,9 +4,6 @@ on:
   push:
     tags:
       - '*'
-    # todo: remove
-    branches:
-      - ci
 
 jobs:
   test:
@@ -95,6 +92,6 @@ jobs:
         with:
           target_commitish: ${{ github.sha }}
           tag_name: ${{ github.ref_name }}
-          name: 'chunked-transfer-cli ${{ github.ref_name }}'
+          name: 'url-parser-cli ${{ github.ref_name }}'
           fail_on_unmatched_files: true
           files: 'bin/*'

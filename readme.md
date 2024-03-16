@@ -15,7 +15,7 @@
 ## Installing
 
 ```shell
-cargo install chunked_transfer_cli
+cargo install url_parser_cli
 ```
 
 You can also download a binary from the [releases page](https://github.com/derhuerst/chunked-transfer-cli/releases).
