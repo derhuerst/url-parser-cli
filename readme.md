@@ -4,8 +4,8 @@
 
 [![crates.io version](https://img.shields.io/crates/v/url_parser_cli.svg)](https://crates.io/crates/url_parser_cli)
 ![ISC-licensed](https://img.shields.io/github/license/derhuerst/url-parser-cli.svg)
-[![chat on gitter](https://badges.gitter.im/derhuerst.svg)](https://gitter.im/derhuerst)
-[![support me on Patreon](https://img.shields.io/badge/support%20me-on%20patreon-fa7664.svg)](https://patreon.com/derhuerst)
+[![support me via GitHub Sponsors](https://img.shields.io/badge/support%20me-donate-fa7664.svg)](https://github.com/sponsors/derhuerst)
+[![chat with me via Matrix](https://img.shields.io/badge/chat%20with%20me-via%20Matrix-000000.svg)](https://matrix.to/#/@derhuerst:matrix.org)
 
 *Note:* I'm a Rust beginner, so the code might be unelegant. 🙈
 

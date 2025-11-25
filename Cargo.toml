@@ -1,6 +1,6 @@
 [package]
 name = "url_parser_cli"
-version = "4.0.0"
+version = "4.0.2"
 edition = "2021"
 authors = ["Jannis R <mail@jannisr.de>"]
 repository = "https://github.com/derhuerst/url-parser-cli.git"
