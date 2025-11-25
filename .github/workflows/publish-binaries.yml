@@ -36,7 +36,7 @@ jobs:
           # - os: macos-latest
           #   target: aarch64-apple-ios
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
       - name: set up Rust stable
         uses: dtolnay/rust-toolchain@0b1efabc08b657293548b77fb76cc02d26091c7e
         with:
@@ -50,7 +50,7 @@ jobs:
         run: |
           cargo build --release --all-features --target '${{ matrix.target }}'
       - name: store built binary as artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: ${{ matrix.target }}
           path: target/${{ matrix.target }}/release/url_parser_cli
@@ -60,7 +60,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: download built binaries
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           path: targets
       - name: rename, move & compress binaries
@@ -73,10 +73,9 @@ jobs:
           gzip --keep bin/*
           ls -lh bin
       - name: create release & upload binaries
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           target_commitish: ${{ github.sha }}
-          tag_name: ${{ github.ref_name }}
           name: 'url-parser-cli ${{ github.ref_name }}'
           fail_on_unmatched_files: true
           files: 'bin/*'
