@@ -43,17 +43,21 @@ jobs:
           toolchain: stable
       - name: set up Rust target
         run: |
+          set -eux -o pipefail
           rustup target add '${{ matrix.target }}'
       - name: configure Cargo/rustc caching
         uses: Swatinem/rust-cache@v2
+
       - name: build ${{ matrix.target }}
         run: |
+          set -eux -o pipefail
           cargo build --release --all-features --target '${{ matrix.target }}'
       - name: store built binary as artifact
         uses: actions/upload-artifact@v5
         with:
           name: ${{ matrix.target }}
           path: target/${{ matrix.target }}/release/url_parser_cli
+
   release:
     name: create GitHub Release, upload binaries
     needs: binaries
@@ -66,6 +70,7 @@ jobs:
       - name: rename, move & compress binaries
         id: binaries
         run: |
+          set -eux -o pipefail
           mkdir bin
           for target in targets/*; do
             mv "$target/url_parser_cli" "bin/url_parser_cli-$(basename "$target")"
