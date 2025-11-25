@@ -4,3 +4,7 @@
 
 /target
 **/*.rs.bk
+
+# used by goreleaser
+dist/
+.intentionally-empty-file.o

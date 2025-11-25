@@ -10,77 +10,25 @@ jobs:
     name: run tests
     uses: './.github/workflows/test.yml'
 
-  binaries:
-    name: build ${{ matrix.target }} binary
+  release:
+    name: build & release binaries
     needs: [test]
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        # todo
-        include:
-          - os: ubuntu-latest
-            target: x86_64-unknown-linux-musl
-          # - os: ubuntu-latest
-          #   # todo: there's also x86_64-pc-windows-msvc
-          #   target: x86_64-pc-windows-gnu
-          # - os: ubuntu-latest
-          #   target: armv7-unknown-linux-musleabihf
-          # - os: ubuntu-latest
-          #   target: armv7-linux-androideabi
-          # - os: ubuntu-latest
-          #   target: aarch64-linux-android
-          # - os: ubuntu-latest
-          #   target: aarch64-unknown-linux-gnu
-          # - os: macos-latest
-          #   target: x86_64-apple-darwin
-          # - os: macos-latest
-          #   target: aarch64-apple-ios
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v6
-      - name: set up Rust stable
-        uses: dtolnay/rust-toolchain@0b1efabc08b657293548b77fb76cc02d26091c7e
-        with:
-          toolchain: stable
-      - name: set up Rust target
-        run: |
-          set -eux -o pipefail
-          rustup target add '${{ matrix.target }}'
-      - name: configure Cargo/rustc caching
-        uses: Swatinem/rust-cache@v2
 
-      - name: build ${{ matrix.target }}
-        run: |
-          set -eux -o pipefail
-          cargo build --release --all-features --target '${{ matrix.target }}'
-      - name: store built binary as artifact
-        uses: actions/upload-artifact@v5
-        with:
-          name: ${{ matrix.target }}
-          path: target/${{ matrix.target }}/release/url_parser_cli
+      - name: install Zig
+        uses: mlugg/setup-zig@v2
 
-  release:
-    name: create GitHub Release, upload binaries
-    needs: binaries
-    runs-on: ubuntu-latest
-    steps:
-      - name: download built binaries
-        uses: actions/download-artifact@v6
+      - name: install stable rustup toolchain
+        run: rustup toolchain install stable --profile minimal
+      - uses: Swatinem/rust-cache@v2
+      - name: install cargo-zigbuild
+        run: cargo install --locked cargo-zigbuild
+
+      - uses: goreleaser/goreleaser-action@v6
         with:
-          path: targets
-      - name: rename, move & compress binaries
-        id: binaries
-        run: |
-          set -eux -o pipefail
-          mkdir bin
-          for target in targets/*; do
-            mv "$target/url_parser_cli" "bin/url_parser_cli-$(basename "$target")"
-          done
-          gzip --keep bin/*
-          ls -lh bin
-      - name: create release & upload binaries
-        uses: softprops/action-gh-release@v2
-        with:
-          target_commitish: ${{ github.sha }}
-          name: 'url-parser-cli ${{ github.ref_name }}'
-          fail_on_unmatched_files: true
-          files: 'bin/*'
+          version: "~> v2"
+          args: release --clean
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
