@@ -7,24 +7,9 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        rust-toolchain: ['stable', 'beta']
+    name: run tests
+    uses: './.github/workflows/test.yml'
 
-    steps:
-      - uses: actions/checkout@v3
-      - name: set up Rust ${{ matrix.rust-toolchain }}
-        uses: dtolnay/rust-toolchain@0b1efabc08b657293548b77fb76cc02d26091c7e
-        with:
-          toolchain: ${{ matrix.rust-toolchain }}
-      - name: configure Cargo/rustc caching
-        uses: Swatinem/rust-cache@v2
-
-      - name: cargo test
-        run: cargo test
-      - name: cargo build
-        run: cargo build --all-features
   binaries:
     name: build ${{ matrix.target }} binary
     needs: [test]

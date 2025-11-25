@@ -3,6 +3,8 @@ name: build & test
 on:
   - push
   - pull_request
+  # make workflow callable by others
+  - workflow_call
 
 jobs:
   build-test:
