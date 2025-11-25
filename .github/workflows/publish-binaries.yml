@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: set up Rust ${{ matrix.rust-toolchain }}
-        uses: dtolnay/rust-toolchain@master
+        uses: dtolnay/rust-toolchain@0b1efabc08b657293548b77fb76cc02d26091c7e
         with:
           toolchain: ${{ matrix.rust-toolchain }}
       - name: configure Cargo/rustc caching
@@ -53,7 +53,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: set up Rust stable
-        uses: dtolnay/rust-toolchain@master
+        uses: dtolnay/rust-toolchain@0b1efabc08b657293548b77fb76cc02d26091c7e
         with:
           toolchain: stable
       - name: set up Rust target
